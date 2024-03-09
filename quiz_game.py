@@ -22,6 +22,10 @@ class QuizGame:
             ("What does GPU stand for?", "graphics processing unit"),
             ("What does HTML stand for?", "hypertext markup language"),
             ("What does CSS stand for?", "cascading style sheet")
+            ("What does URL stand for?", "uniform resource locator"),
+            ("What does HTTP stand for?", "hypertext transfer protocol"),
+            ("What does SQL stand for?", "structured query language"),
+            ("What does UX stand for?", "user experience"),
         ]
 
         for question, answer in questions_and_answers:
