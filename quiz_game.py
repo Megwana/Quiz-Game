@@ -20,53 +20,28 @@ class QuizGame:
 
     def questions(self, user_name):
         score = 0
-        while True:
-            answer = input("What does CPU stand for? ").strip().lower()
-            if answer == "central processing unit":
-                print("Correct!")
-                score += 1
-                break
-            elif answer == "":
-                print("Please enter an answer.")
-            else:
-                print("Incorrect!")
-                break
-        while True:
-            answer = input("What does GPU stand for? ").strip().lower()
-            if answer == "graphics processing unit":
-                print("Correct!")
-                score += 1
-                break
-            elif answer == "":
-                print("Please enter an answer.")
-            else:
-                print("Incorrect!")
-                break
-        while True:
-            answer = input("What does HTML stand for? ").strip().lower()
-            if answer == "hypertext markup language":
-                print("Correct!")
-                score += 1
-                break
-            elif answer == "":
-                print("Please enter an answer.")
-            else:
-                print("Incorrect!")
-                break
-        while True:
-            answer = input("What does CSS stand for? ").strip().lower()
-            if answer == "cascading style sheet":
-                print("Correct!")
-                score += 1
-                break
-            elif answer == "":
-                print("Please enter an answer.")
-            else:
-                print("Incorrect!")
-                break
+        questions_and_answers = [
+            ("What does CPU stand for?", "central processing unit"),
+            ("What does GPU stand for?", "graphics processing unit"),
+            ("What does HTML stand for?", "hypertext markup language"),
+            ("What does CSS stand for?", "cascading style sheet")
+        ]
 
-        print("Well done " + str(user_name) + ". You got " + str(score) + " questions correct!")
-        print("This means you got " + str(int(score/4) * 100) + "% overall.")
+        for question, answer in questions_and_answers:
+            while True:
+                user_answer = input(question + " ").strip().lower()
+                if user_answer == answer:
+                    print("Correct!")
+                    score += 1
+                    break
+                elif user_answer == "":
+                    print("Please enter an answer.")
+                else:
+                    print("Incorrect!")
+                    break
+
+        print(f"Well done {user_name}. You got {score} questions correct!")
+        print(f"This means you got {int(score/len(questions_and_answers) * 100)}% overall.")
 
 def main():
     game = QuizGame()
