@@ -1,4 +1,4 @@
-class QuizGame:
+class QuizGame:    
     def take_name_input(self):
         while True:
             user_name = input("Please enter your name: ").strip()
@@ -19,10 +19,12 @@ class QuizGame:
                 print("Invalid input. Please enter 'yes' or 'no'.")
 
     def questions(self):
+        score = 0
         while True:
             answer = input("What does CPU stand for? ").strip().lower()
             if answer == "central processing unit":
                 print("Correct!")
+                score += 1
                 break
             elif answer == "":
                 print("Please enter an answer.")
@@ -30,13 +32,15 @@ class QuizGame:
                 print("Incorrect!")
                 break
 
+        print("You got " + str(score) + " quesrtions correct!")
+        print("You got " + str((score/1) * 100) + "%.")
+
 def main():
     game = QuizGame()
     user_name = game.take_name_input()
     print("Hello,", user_name)
     game.playing(user_name)
     game.questions()
-
 
 if __name__ == "__main__":
     main()
