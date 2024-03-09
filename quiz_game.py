@@ -1,3 +1,5 @@
+import random # import random to randomise the questions
+
 class QuizGame:    
     def take_name_input(self):
         while True:
@@ -21,12 +23,14 @@ class QuizGame:
             ("What does CPU stand for?", "central processing unit"),
             ("What does GPU stand for?", "graphics processing unit"),
             ("What does HTML stand for?", "hypertext markup language"),
-            ("What does CSS stand for?", "cascading style sheet")
+            ("What does CSS stand for?", "cascading style sheet"),
             ("What does URL stand for?", "uniform resource locator"),
             ("What does HTTP stand for?", "hypertext transfer protocol"),
             ("What does SQL stand for?", "structured query language"),
             ("What does UX stand for?", "user experience"),
         ]
+
+        random.shuffle(questions_and_answers)  # Randomize the questions
 
         for question, answer in questions_and_answers:
             while True:
@@ -49,7 +53,7 @@ def main():
     if game.playing(user_name):
         game.questions(user_name)
     while True:
-        play_input = input("Do you want to play again? (Y/N): ").strip().lower()
+        play_input = input("Do you want to play again?: ").strip().lower()
         if play_input == 'yes':
             game.questions(user_name)
         elif play_input == 'no':
