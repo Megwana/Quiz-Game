@@ -9,12 +9,9 @@ class QuizGame:
     def playing(self, user_name):
         while True:
             play = input(f"{user_name}, do you want to play the quiz game? (yes/no) ").strip().lower()
-            if play == "yes":
-                print("Great, let's go!")
-                break
-            elif play == "no":
-                print("Okay! Until next time.")
-                break
+            if play in {"yes", "no"}:
+                print("Great, let's go!" if play == "yes" else "Okay! Until next time.")
+                return play == "yes"
             else:
                 print("Invalid input. Please enter 'yes' or 'no'.")
 
