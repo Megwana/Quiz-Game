@@ -18,7 +18,7 @@ class QuizGame:
             else:
                 print("Invalid input. Please enter 'yes' or 'no'.")
 
-    def questions(self):
+    def questions(self, user_name):
         score = 0
         while True:
             answer = input("What does CPU stand for? ").strip().lower()
@@ -31,16 +31,49 @@ class QuizGame:
             else:
                 print("Incorrect!")
                 break
+        while True:
+            answer = input("What does GPU stand for? ").strip().lower()
+            if answer == "graphics processing unit":
+                print("Correct!")
+                score += 1
+                break
+            elif answer == "":
+                print("Please enter an answer.")
+            else:
+                print("Incorrect!")
+                break
+        while True:
+            answer = input("What does HTML stand for? ").strip().lower()
+            if answer == "hypertext markup language":
+                print("Correct!")
+                score += 1
+                break
+            elif answer == "":
+                print("Please enter an answer.")
+            else:
+                print("Incorrect!")
+                break
+        while True:
+            answer = input("What does CSS stand for? ").strip().lower()
+            if answer == "cascading style sheet":
+                print("Correct!")
+                score += 1
+                break
+            elif answer == "":
+                print("Please enter an answer.")
+            else:
+                print("Incorrect!")
+                break
 
-        print("You got " + str(score) + " quesrtions correct!")
-        print("You got " + str((score/1) * 100) + "%.")
+        print("Well done " + str(user_name) + ". You got " + str(score) + " questions correct!")
+        print("This means you got " + str(int(score/4) * 100) + "% overall.")
 
 def main():
     game = QuizGame()
     user_name = game.take_name_input()
     print("Hello,", user_name)
     game.playing(user_name)
-    game.questions()
+    game.questions(user_name)
 
 if __name__ == "__main__":
     main()
