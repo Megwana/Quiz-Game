@@ -46,13 +46,13 @@ def main():
         game.questions(user_name)
     while True:
         play_input = input("Do you want to play again? (Y/N): ").strip().lower()
-        if play_input == 'y':
+        if play_input == 'yes':
             game.questions(user_name)
-        elif play_input == 'n':
+        elif play_input == 'no':
             print(f"Goodbye for now {user_name}")
             quit()
         else:
-            print("Please enter 'Y' or 'N'")
+            print("Please enter 'yes' or 'no'")
 
 if __name__ == "__main__":
     main()
