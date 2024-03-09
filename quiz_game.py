@@ -18,11 +18,24 @@ class QuizGame:
             else:
                 print("Invalid input. Please enter 'yes' or 'no'.")
 
+    def questions(self):
+        while True:
+            answer = input("What does CPU stand for? ").strip().lower()
+            if answer == "central processing unit":
+                print("Correct!")
+                break
+            elif answer == "":
+                print("Please enter an answer.")
+            else:
+                print("Incorrect!")
+                break
+
 def main():
     game = QuizGame()
     user_name = game.take_name_input()
     print("Hello,", user_name)
     game.playing(user_name)
+    game.questions()
 
 
 if __name__ == "__main__":
