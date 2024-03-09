@@ -27,25 +27,23 @@ class QuizGame:
         for question, answer in questions_and_answers:
             while True:
                 user_answer = input(question + " ").strip().lower()
-                if user_answer == answer:
-                    print("Correct!")
-                    score += 1
-                    break
-                elif user_answer == "":
+                if user_answer == "":
                     print("Please enter an answer.")
                 else:
-                    print("Incorrect!")
+                    correct = user_answer == answer
+                    print("Correct!" if correct else "Incorrect!")
+                    score += correct
                     break
 
         print(f"Well done {user_name}. You got {score} questions correct!")
-        print(f"This means you got {int(score/len(questions_and_answers) * 100)}% overall.")
+        print(f"This means you got {score / len(questions_and_answers) * 100}% overall.")
 
 def main():
     game = QuizGame()
     user_name = game.take_name_input()
     print("Hello,", user_name)
-    game.playing(user_name)
-    game.questions(user_name)
+    if game.playing(user_name):
+        game.questions(user_name)
 
 if __name__ == "__main__":
     main()
